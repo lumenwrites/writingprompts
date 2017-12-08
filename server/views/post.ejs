@@ -1,0 +1,53 @@
+<%- include('elements/head') -%>
+<%- include('elements/header') -%>
+
+<div class="post-detail">
+    <div class="container">
+	<div class="row">
+	    <div class="col-md-12 col-sm-12">
+
+		<article>
+		    <div class="icons">
+			<% if(post.author){ %>
+			    <a href="/author/<%- post.authorslug -%>">
+				<i class="fa fa-user-circle"></i><%- post.author -%>
+			    </a>
+			<% } %>
+			<% if(post.series){ %>
+			    <a href="/series/<%- post.seriesslug -%>">
+				<i class="fa fa-list"></i><%- post.series -%>
+			    </a>
+			<% } %>
+			<!-- clearfix only on mobile -->
+			<div class="clearfix visible-xs"></div>
+			<% if(post.imdb){ %>
+			    <a href="<%- post.imdb -%>">
+				<i class="fa fa-imdb"></i>IMDB
+			    </a>
+			<% } %>
+			<a href="/scripts/<%- post.slug -%>.pdf">
+			    <i class="fa fa-download"></i>PDF
+			</a>
+		    </div><!-- End .icons -->
+
+
+		    <hr/>
+
+		    <div class="screenplay">
+			<div class="title-page">
+			    <h1><%- post.title -%></h1>			    
+			    <%//- post.titlePage -%>
+			</div>			    
+			<%- post.html -%>
+		    </div>
+		</article>
+
+	    </div> <!-- End .col-md-12 -->
+	</div> <!-- End .row -->
+    </div> <!-- End .container -->
+    <%- include('elements/cta') -%>        
+</div> <!-- End .page-class -->
+
+
+<%- include('elements/help-modal') -%>
+<%- include('elements/footer') -%>

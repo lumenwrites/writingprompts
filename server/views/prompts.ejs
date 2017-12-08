@@ -1,0 +1,65 @@
+<%- include('elements/head') -%>
+<%- include('elements/header') -%>
+
+
+<div class="page prompts">
+    <div class="container">
+	<div class="show-grid row">
+	    <div class="show-grid row">
+		<div class="col-md-12 col-xs-12">
+		    <article>
+			<h1>Unnoticed Prompts</h1>
+			Use this tool to discover great recent prompts that have not received many replies yet.
+			Replying to them will help your story to get more attention(it will not be buried under hundreds of other replies), and will make sure that prompts people want to read are not left unanswered.
+		    </article>
+
+		    <% for(var i=0; i < prompts.length; i++) { %>
+			<article class="prompt">
+			    <a href="<%= prompts[i].url %>">
+				<%= prompts[i].title %>
+			    </a>
+			    <div class="footer">
+				<a data-toggle="tooltip"
+				   data-placement="right"
+				   title="Position of the prompt on the front page of /r/WritingPrompts">
+				    <i class="fa fa-hashtag"></i>
+				    <%= prompts[i].position %>
+				</a>
+				<a data-toggle="tooltip"
+				   data-placement="right"       
+				   title="Number of upvotes">
+				    <i class="fa fa-arrow-up"></i>
+				    <%= prompts[i].score %>
+				</a>
+				<a data-toggle="tooltip"
+				   data-placement="right"       
+				   title="Number of replies">    
+				    <i class="fa fa-comments"></i>
+				    <%= prompts[i].num_comments %>
+				</a>
+				<a data-toggle="tooltip"
+				   data-placement="right"       
+				   data-html="true"
+				   title="How long ago it was posted (in hours)">
+				    <i class="fa fa-clock-o"></i>
+				    <%= prompts[i].age %>
+				</a>
+			    </div>
+			</article>
+		    <% } %>
+		</div>
+	    </div>
+	</div>
+    </div>
+</div>
+
+<%- include('elements/cta') -%>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>      
+
+
+<% include ./elements/footer %>

@@ -1,0 +1,63 @@
+<%- include('elements/head') -%>
+<%- include('elements/header') -%>
+
+<div class="page topauthors">
+    <div class="container">
+	<div class="show-grid row">
+	    <div class="col-md-12 col-xs-12">
+		<article>
+		    <span class="btn btn-default dropdown right">
+			<% if(timeframe=='week'){ %>
+			    This Week
+			<% } else{ %>  
+			    All Time
+			<% } %>		      
+			<ul class="dropdown-menu">
+			    <% if(timeframe=='week'){ %>
+				<li><a href="/topauthors">All time</a></li>
+			    <% } else{ %>
+				<li><a href="/topauthors?time=week">This Week</a></li>
+			    <% } %>		      
+			</ul>	
+		    </span>				
+
+		    <h1>Top 100 /r/WritingPrompts authors</h1>
+		    This is a leaderboard of the best(most upvoted)
+		    <a href="https://www.reddit.com/r/WritingPrompts/">
+			/r/WritingPrompts</a> authors and their top stories.
+
+		    <% if(timeframe=='week'){ %>
+			Updated every day.
+		    <% } else{ %>  
+			Updated every week.
+		    <% } %>		      
+		</article>
+
+		<!-- List of authors -->
+		<% for(var i=0; i < authors.length; i++) { %>
+		    <article>
+			<a href="https://www.reddit.com/user/<%= authors[i].username %>/comments/?sort=top">
+			    <h2> <%= i+1 %>. <%= authors[i].username %> </h2>
+			</a>
+			
+			<p>Best stories:  </p>
+			<ol>
+			    <% for(var s=0; s < authors[i].beststories.length; s++) { %>
+				<li>
+				    <a href="<%= authors[i].beststories[s].url %>">
+					<%= authors[i].beststories[s].prompt %>
+				    </a>
+				</li>
+			    <% } %>
+			</ol>
+		    </article>
+		<% } %>
+
+	    </div>
+	</div>
+    </div>
+</div>
+
+<%- include('elements/cta') -%>
+
+<% include ./elements/footer %>

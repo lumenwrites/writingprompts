@@ -1,0 +1,128 @@
+<%- include('elements/head') -%>
+<%- include('elements/header') -%>
+
+
+<div class="page">
+    <div class="container">
+	<%- include('elements/subscriptionbox') -%>
+	<div class="row">
+	    <div class="col-md-12 col-sm-12">
+		<h1>/r/WritingPrompts Tools:</h1>
+		<div class="post-boxes">
+		    <!-- Unnoticed Prompts -->		    
+		    <a href="/prompts">
+			<article class="post-box">
+			    <div class="image-wrapper">
+				<div class="thumbnail"
+				     style="background-image:
+					    url('/static/images/magnifying-glass.jpg');">
+				</div>
+			    </div>
+			    <div class="description">
+				<h2>Unnoticed Prompts</h2>
+				<p>Discover great prompts that did not receive many replies.</p>
+			    </div>
+			</article>
+		    </a>
+
+		    <!-- Leaderboard -->		    
+		    <a href="/topauthors">
+			<article class="post-box">
+			    <div class="image-wrapper">
+				<div class="thumbnail"
+				     style="background-image:
+					    url('/static/images/top-writers.jpg');">
+				</div>
+			    </div>
+			    <div class="description">
+				<h2>Leaderboard</h2>
+				<p>Browse the top 100 authors and their most upvoted stories.</p>
+			    </div>
+			</article>
+		    </a>
+
+		    <!-- Reader -->		    
+		    <a href="/stories">
+			<article class="post-box">
+			    <div class="image-wrapper">
+				<div class="thumbnail"
+				     style="background-image:
+					    url('/static/images/reading.jpg');">
+				</div>
+			    </div>
+			    <div class="description">
+				<h2>Reader</h2>
+				<p>Read the most upvoted stories of this day, week, month, ora all time.</p>
+			    </div>
+			</article>
+		    </a>
+		    
+		</div> <!-- End .posts-wrapper -->		
+	    </div> <!-- End .col-md-12 -->
+	</div> <!-- End .row -->
+    </div> <!-- End .container -->
+
+    <div class="container prompt-generator hidden">
+	<%//- include('elements/subscriptionbox') -%>
+	<div class="row">
+	    <div class="col-md-12 col-sm-12">
+		<h1>Prompt Generator:</h1>
+		<ul class="nav nav-tabs">
+		    <li class="active">
+			<a data-toggle="tab" href="#premises">Premises</a>
+		    </li>
+		    <li>
+			<a data-toggle="tab" href="#settings">Settings</a>
+		    </li>
+		    <li>
+			<a data-toggle="tab" href="#characters">Characters</a>
+		    </li>
+		    <li>
+			<a data-toggle="tab" href="#improv">Improv Topics</a>
+		    </li>
+		    <li>
+			<a data-toggle="tab" href="#essay">Essay Topics</a>
+		    </li>
+		    <li>
+			<a data-toggle="tab" href="#exercises">Writing Exercises</a>
+		    </li>		    
+		</ul>
+		
+		<div class="tab-content">
+		    <div id="premises" class="tab-pane active">
+			<a class="btn btn-default right">
+			    <i class="fa fa-refresh"></i>
+			</a>			
+			<h4>Text Prompt:</h4>
+			<br/>
+			<p>Happy prompt, dark lord takes over the village.</p>
+			<br/>
+			<a class="btn btn-default right">
+			    <i class="fa fa-refresh"></i>
+			</a>			
+			<h4>Image Prompt</h4>
+			<img src="/static/images/settings/005.jpg"/>
+		    </div>
+		    <div id="settings" class="tab-pane fade">
+			<b>Text Prompt</b>
+			<p>Some content.</p>
+			<b>Image Prompt</b>
+			<img src="/static/images/settings/005.jpg"/>
+		    </div>
+		    <div id="characters" class="tab-pane fade">
+			<b>Text Prompt</b>
+			<p>Some content.</p>
+			<b>Image Prompt</b>
+			<img src="/static/images/settings/005.jpg"/>
+		    </div>
+		</div>
+
+	    </div> <!-- End .col-md-12 -->
+	</div> <!-- End .row -->
+    </div> <!-- End .container -->
+    
+    <%- include('elements/cta') -%>    
+</div> <!-- End .page-class -->
+
+<%- include('elements/help-modal') -%>
+<%- include('elements/footer') -%>

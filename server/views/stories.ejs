@@ -1,0 +1,66 @@
+<%- include('elements/head') -%>
+<%- include('elements/header') -%>
+
+<div class="page stories">
+    <div class="container">
+	<div class="show-grid row">
+	    <div class="col-md-12 col-xs-12">
+		<article>
+		    <span class="btn btn-default dropdown right">
+			<% if(timeframe=='week'){ %>
+			    This Week
+			<% } else{ %>  
+			    All Time
+			<% } %>		      
+			<ul class="dropdown-menu">
+			    <% if(timeframe=='week'){ %>
+				<li><a href="/topauthors">All time</a></li>
+			    <% } else{ %>
+				<li><a href="/topauthors?time=week">This Week</a></li>
+			    <% } %>		      
+			</ul>	
+		    </span>				
+		    <h1>Top 100 /r/WritingPrompts stories</h1>
+		    This is a least of the most upvoted /r/WritingPrompts stories 
+		    <% if(timeframe=='week'){ %>
+			of this week.
+		    <% } else{ %>  
+			of all time.
+		    <% } %>		      
+		</article>
+
+
+		<!-- List of stories -->
+		<% for(var i=0; i < stories.length; i++) { %>
+		    <article class="story">
+			<a href="https://www.reddit.com/<%= stories[i].permalink %>">
+			    <h2> <%= i+1 %>. <%= stories[i].prompt %> </h2>
+			</a>
+			<%- stories[i].body -%>
+
+			<div class="footer">
+			    <a data-toggle="tooltip" data-placement="right"
+			       title="Author"
+			       href="https://www.reddit.com/user/<%= stories[i].author %>/comments/?sort=top">				
+				<i class="fa fa-user"></i>
+				<%= stories[i].author %>
+			    </a>
+			    <a data-toggle="tooltip" data-placement="right"
+			       title="Score">
+				<i class="fa fa-arrow-up"></i>
+				<%= stories[i].score %>
+			    </a>
+			</div>
+			
+		    </article>
+		<% } %>
+		
+
+	    </div>
+	</div>
+    </div>
+</div>
+
+<%- include('elements/cta') -%>
+
+<% include ./elements/footer %>
