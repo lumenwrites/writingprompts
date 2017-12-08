@@ -20,10 +20,13 @@ require.extensions['.fountain'] = function (module, filename) {
 
 /* Home */
 export function home(req, res) {
-    var settings = fs.readFileSync('./server/content/settings.md','utf8')
-    settings = settings.toString().split("\n")
-    console.log(settings)
-    res.render('index', {config: config, settings})
+    var settingsText = fs.readFileSync('./server/content/settings-text.md','utf8')
+    var settingsImages = fs.readFileSync('./server/content/settings-images.md','utf8')
+    /* Turn lines into an array, remove last empty element */
+    settingsText = settingsText.toString().split("\n").slice(0, -1)
+    settingsImages = settingsImages.toString().split("\n").slice(0, -1)    
+
+    res.render('index', {config: config, settingsText, settingsImages})
 }
 
 export function topStories(req, res) {

@@ -67,43 +67,58 @@
 	    <div class="col-md-12 col-sm-12">
 		<h1>Prompt Generator:</h1>
 		<ul class="nav nav-tabs">
-		    <li class="active">
-			<a data-toggle="tab" href="#premises">Premises</a>
+		    <li class="nav-item active">
+			<a class="nav-link"
+			   data-toggle="tab"
+			   href="#premises">
+			    Premises
+			</a>
 		    </li>
-		    <li>
-			<a data-toggle="tab" href="#settings">Settings</a>
+		    <li class="nav-item">
+			<a class="nav-link"
+			   data-toggle="tab"
+			   href="#settings">
+			    Settings
+			</a>
 		    </li>
-		    <li>
-			<a data-toggle="tab" href="#characters">Characters</a>
+		    <li class="nav-item">
+			<a class="nav-link"
+			   data-toggle="tab"
+			   href="#characters">
+			    Characters
+			</a>
 		    </li>
 		    <!-- 
-		    <li>
-			<a data-toggle="tab" href="#improv">Improv Topics</a>
-		    </li>
-		    <li>
-			<a data-toggle="tab" href="#essay">Essay Topics</a>
-		    </li>
-		    <li>
-			<a data-toggle="tab" href="#exercises">Writing Exercises</a>
-		    </li>
-		    -->
+			 <li>
+			 <a data-toggle="tab" href="#improv">Improv Topics</a>
+			 </li>
+			 <li>
+			 <a data-toggle="tab" href="#essay">Essay Topics</a>
+			 </li>
+			 <li>
+			 <a data-toggle="tab" href="#exercises">Writing Exercises</a>
+			 </li>
+		       -->
 		</ul>
 		
 		<div class="tab-content">
 		    <div id="premises" class="tab-pane active">
-			<a class="btn btn-default right">
-			    <i class="fa fa-refresh"></i>
-			</a>			
-			<h4>Text Prompt:</h4>
-			<br/>
-			<p>Happy prompt, dark lord takes over the village.</p>
-			<br/>
-			<a id="refresh-settings"
-			   class="btn btn-default right">
-			    <i class="fa fa-refresh"></i>
-			</a>			
-			<h4>Image Prompt</h4>
-			<img id="settings-image-prompt" src="<%= settings[0] %>"/>
+			<div data-prompts='<%- JSON.stringify(settingsText) %>'>
+			    <h4>
+				<i class="fa fa-refresh refresh"></i>
+				Text Prompt
+			    </h4>
+			    <p class="text-prompt">
+				Happy prompt, dark lord takes over the village.
+			    </p>
+			</div>
+			<div data-prompts='<%- JSON.stringify(settingsImages) %>'>
+			    <h4>
+				<i class="fa fa-refresh refresh"></i>
+				Image Prompt
+			    </h4>
+			    <img class="image-prompt" src=<%= settingsImages[0] %>/>
+			</div>
 		    </div>
 		    <div id="settings" class="tab-pane fade">
 			<b>Settings</b>
@@ -127,7 +142,8 @@
 </div> <!-- End .page-class -->
 
 <script>
-const SETTINGS = <%- JSON.stringify(settings) %>
+var TEXT_SETTINGS = <%- JSON.stringify(settingsText) %>
+    var IMAGE_SETTINGS = <%- JSON.stringify(settingsImages) %>    
 </script>
 <%- include('elements/help-modal') -%>
 <%- include('elements/footer') -%>

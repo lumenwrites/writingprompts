@@ -201,7 +201,7 @@ article {
     }
     .tab-pane {
 	background: white;
-	padding: 40px 20px;
+	padding: 20px;
 	border: 1px solid #dddddd;
 	border-top: none;
 	p {
@@ -210,6 +210,19 @@ article {
 	h4 {
 	    font-weight: bold;
 	    margin: 0;
+	    i {
+		background: #008cba;
+		width: 28px; height: 28px;
+		border-radius: 28px;
+		text-align: center;
+		line-height: 28px;
+		color: white;
+		cursor:pointer;
+		margin-bottom: 5px;
+		margin-top: -10px;
+		font-size: 18px;
+		padding: 1px;
+	    }
 	}
 	img {
 	    width: 100%;

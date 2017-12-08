@@ -493,7 +493,7 @@ article .footer a {
 /* line 202, ../sass/style.scss */
 .prompt-generator .tab-pane {
   background: white;
-  padding: 40px 20px;
+  padding: 20px;
   border: 1px solid #dddddd;
   border-top: none;
 }
@@ -506,22 +506,37 @@ article .footer a {
   font-weight: bold;
   margin: 0;
 }
-/* line 214, ../sass/style.scss */
+/* line 213, ../sass/style.scss */
+.prompt-generator .tab-pane h4 i {
+  background: #008cba;
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  text-align: center;
+  line-height: 28px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-top: -10px;
+  font-size: 18px;
+  padding: 1px;
+}
+/* line 227, ../sass/style.scss */
 .prompt-generator .tab-pane img {
   width: 100%;
 }
 
-/* line 220, ../sass/style.scss */
+/* line 233, ../sass/style.scss */
 .cta {
   padding: 20px 40px;
   margin-top: 20px;
   margin-bottom: 0;
 }
-/* line 224, ../sass/style.scss */
+/* line 237, ../sass/style.scss */
 .cta p, .cta li {
   font-size: 18px;
 }
-/* line 227, ../sass/style.scss */
+/* line 240, ../sass/style.scss */
 .cta p {
   padding-bottom: 0;
 }

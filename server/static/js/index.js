@@ -9,6 +9,28 @@ function getRandomInt(min, max) {
 
 $( document ).ready(function() {
 
+    $('.refresh').click(function() {
+	/* Every time I click, I rotate data in data attribute,
+	   and replace prompt with the first element in the array.
+	   Allows me to elegantly cycle through prompts. */
+	var dataWrapper = $(this).parent().parent()
+	var prompts = dataWrapper.data('prompts')
+	/* takes first prompt and moves it to the end of the array */
+	prompts.push(prompts.shift())
+	/* Update data */
+	dataWrapper.data('prompts', prompts)	
+	/* replace the prompt text or image, whichever one is there. */
+	dataWrapper.find('.text-prompt').text(prompts[0])
+	dataWrapper.find('.image-prompt').attr('src',prompts[0])
+
+    });
+    
+    $('#refresh-settings-text-prompt').click(function(){
+	const random = getRandomInt(0,SETTINGS.length - 2)
+	arr.push(arr.shift())
+	$('#settings-text-prompt').text('heyah!')
+    })
+
     $('#refresh-settings').click(function(){
 	const random_int = getRandomInt(0,SETTINGS.length - 2)
 	
@@ -16,7 +38,6 @@ $( document ).ready(function() {
 
 	$('#settings').attr('src', SETTINGS[random_int]);
     })
-    
 
     /* Turn on dark interface */
     if (localStorage.getItem("darkInterface")) {
@@ -29,48 +50,9 @@ $( document ).ready(function() {
 	headID.appendChild(cssNode);
     }
     
-});
-
-/* Maintain scroll position */
-window.onscroll = function() {
-    /* Save scroll posiion on scroll */
-    localStorage.setItem("scroll-" + window.location.pathname, document.documentElement.scrollTop)
-}
-$(document).ready(function() {
-    /* Load scroll position if it's saved in local storage */
-    var scroll = localStorage.getItem("scroll-" + window.location.pathname)
-    if (scroll) {
-	document.documentElement.scrollTop = scroll
-	console.log('Set scroll ' + scroll)
-    }
-});
-
-/* Hotkeys */
-
-/* Fullscreen mode  */
-function toggleFullScreen(){
-    if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
-	(!document.mozFullScreen && !document.webkitIsFullScreen)) {
-	/* Enter fullscreen */
-	document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)
-	console.log("Enter full screen")
-    } else {
-	/* Exit fullscreen */
-	document.webkitCancelFullScreen()
-	console.log("Exit full screen")
-    }
-}
-
-Mousetrap.bind('f', function(e) {
-    /* Remember scroll position */
-    var scrollPosition = document.documentElement.scrollTop    
-    toggleFullScreen();
-    /* Reset scroll position */
-    setTimeout(()=>{
-	document.documentElement.scrollTop = scrollPosition
-    },10)
 })
 
+/* Hotkeys */
 /* Dark interface */
 function toggleDarkInterface() {
     if (localStorage.getItem("darkInterface")) {
@@ -95,31 +77,3 @@ Mousetrap.bind('d', function(e) {
 $( "#toggleDarkInterface" ).click(function() {
     toggleDarkInterface();
 })
-/* Autoscroll */
-function pageScroll(speed) {
-    window.scrollBy(0,1);
-    scroll = setTimeout(function(){pageScroll(speed);},speed);
-}
-
-Mousetrap.bind('s', function(e) {
-    pageScroll(10);
-});
-
-Mousetrap.bind('w', function(e) {
-    window.clearTimeout(scroll);
-});
-
-/* Clear all timeouts */
-Mousetrap.bind('q', function(e) {
-    // Set a fake timeout to get the highest timeout id
-    var highestTimeoutId = setTimeout(";");
-    for (var i = 0 ; i < highestTimeoutId ; i++) {
-	clearTimeout(i); 
-    }
-});
-
-
-
-
-
-
