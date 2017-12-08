@@ -12,7 +12,7 @@ $( document ).ready(function() {
     $('.refresh').click(function() {
 	/* Every time I click, I rotate data in data attribute,
 	   and replace prompt with the first element in the array.
-	   Allows me to elegantly cycle through prompts. */
+	   Allows me to super elegantly cycle through prompts. */
 	var dataWrapper = $(this).parent().parent()
 	var prompts = dataWrapper.data('prompts')
 	/* takes first prompt and moves it to the end of the array */
@@ -22,8 +22,7 @@ $( document ).ready(function() {
 	/* replace the prompt text or image, whichever one is there. */
 	dataWrapper.find('.text-prompt').text(prompts[0])
 	dataWrapper.find('.image-prompt').attr('src',prompts[0])
-
-    });
+    })
     
     $('#refresh-settings-text-prompt').click(function(){
 	const random = getRandomInt(0,SETTINGS.length - 2)

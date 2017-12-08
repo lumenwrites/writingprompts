@@ -18,15 +18,50 @@ require.extensions['.fountain'] = function (module, filename) {
 
 
 
+
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
+
 /* Home */
 export function home(req, res) {
     var settingsText = fs.readFileSync('./server/content/settings-text.md','utf8')
-    var settingsImages = fs.readFileSync('./server/content/settings-images.md','utf8')
     /* Turn lines into an array, remove last empty element */
     settingsText = settingsText.toString().split("\n").slice(0, -1)
+    shuffle(settingsText)
+    var settingsImages = fs.readFileSync('./server/content/settings-images.md','utf8')
     settingsImages = settingsImages.toString().split("\n").slice(0, -1)    
+    shuffle(settingsImages)
 
-    res.render('index', {config: config, settingsText, settingsImages})
+    var charactersText = fs.readFileSync('./server/content/characters-text.md','utf8')
+    charactersText = charactersText.toString().split("\n").slice(0, -1)
+    shuffle(charactersText)
+    var charactersImages = fs.readFileSync('./server/content/characters-images.md','utf8')
+    charactersImages = charactersImages.toString().split("\n").slice(0, -1)    
+    shuffle(charactersImages)
+
+    var premisesText = fs.readFileSync('./server/content/premises-text.md','utf8')
+    premisesText = premisesText.toString().split("\n").slice(0, -1)
+    shuffle(premisesText)
+    var premisesImages = fs.readFileSync('./server/content/premises-images.md','utf8')
+    premisesImages = premisesImages.toString().split("\n").slice(0, -1)    
+    shuffle(premisesImages)
+
+    
+    
+    res.render('index', {
+	config: config,
+	settingsText,
+	settingsImages,
+	charactersText,
+	charactersImages,
+	premisesText,
+	premisesImages
+    })
 }
 
 export function topStories(req, res) {
