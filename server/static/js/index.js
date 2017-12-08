@@ -1,9 +1,22 @@
-import './vendor/popper.min.js';
-import './vendor/bootstrap.min.js';
-import './vendor/mousetrap.min.js';
+import './vendor/popper.min.js'
+import './vendor/bootstrap.min.js'
+import './vendor/mousetrap.min.js'
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 
 $( document ).ready(function() {
-    console.log( "Heyya!!" );
+
+    $('#refresh-settings').click(function(){
+	const random_int = getRandomInt(0,SETTINGS.length - 2)
+	
+	console.log(random_int)
+
+	$('#settings').attr('src', SETTINGS[random_int]);
+    })
+    
 
     /* Turn on dark interface */
     if (localStorage.getItem("darkInterface")) {
@@ -104,4 +117,9 @@ Mousetrap.bind('q', function(e) {
 	clearTimeout(i); 
     }
 });
+
+
+
+
+
 

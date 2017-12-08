@@ -27,14 +27,16 @@ function getPlugins() {
 
     plugins.push(
 	new webpack.ProvidePlugin({
-	    $: 'jquery',
+	    $: "jquery",
 	    jQuery: 'jquery',
-	    'window.jQuery': 'jquery',
-	    Tether: 'tether'
+	    "window.jQuery": 'jquery',
+	    tether: 'tether',
+	    Tether: 'tether',
+	    'window.Tether': 'tether'
 	})
     ); 
     
-
+    console.log("Adding plugins " + JSON.stringify(plugins))
     return plugins;
 }
 
@@ -57,8 +59,6 @@ module.exports = {
 	    },
 	]
     },
-    plugins: getPlugins(),
-    resolve: {
-	extensions: ['.js']
-    },
+    
+    plugins: getPlugins()
 };

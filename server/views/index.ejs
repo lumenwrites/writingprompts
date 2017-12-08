@@ -62,8 +62,7 @@
 	</div> <!-- End .row -->
     </div> <!-- End .container -->
 
-    <div class="container prompt-generator hidden">
-	<%//- include('elements/subscriptionbox') -%>
+    <div class="container prompt-generator">
 	<div class="row">
 	    <div class="col-md-12 col-sm-12">
 		<h1>Prompt Generator:</h1>
@@ -77,6 +76,7 @@
 		    <li>
 			<a data-toggle="tab" href="#characters">Characters</a>
 		    </li>
+		    <!-- 
 		    <li>
 			<a data-toggle="tab" href="#improv">Improv Topics</a>
 		    </li>
@@ -85,7 +85,8 @@
 		    </li>
 		    <li>
 			<a data-toggle="tab" href="#exercises">Writing Exercises</a>
-		    </li>		    
+		    </li>
+		    -->
 		</ul>
 		
 		<div class="tab-content">
@@ -97,20 +98,21 @@
 			<br/>
 			<p>Happy prompt, dark lord takes over the village.</p>
 			<br/>
-			<a class="btn btn-default right">
+			<a id="refresh-settings"
+			   class="btn btn-default right">
 			    <i class="fa fa-refresh"></i>
 			</a>			
 			<h4>Image Prompt</h4>
-			<img src="/static/images/settings/005.jpg"/>
+			<img id="settings-image-prompt" src="<%= settings[0] %>"/>
 		    </div>
 		    <div id="settings" class="tab-pane fade">
-			<b>Text Prompt</b>
+			<b>Settings</b>
 			<p>Some content.</p>
 			<b>Image Prompt</b>
 			<img src="/static/images/settings/005.jpg"/>
 		    </div>
 		    <div id="characters" class="tab-pane fade">
-			<b>Text Prompt</b>
+			<b>Characters</b>
 			<p>Some content.</p>
 			<b>Image Prompt</b>
 			<img src="/static/images/settings/005.jpg"/>
@@ -124,5 +126,8 @@
     <%- include('elements/cta') -%>    
 </div> <!-- End .page-class -->
 
+<script>
+const SETTINGS = <%- JSON.stringify(settings) %>
+</script>
 <%- include('elements/help-modal') -%>
 <%- include('elements/footer') -%>

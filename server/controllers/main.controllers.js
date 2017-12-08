@@ -20,7 +20,10 @@ require.extensions['.fountain'] = function (module, filename) {
 
 /* Home */
 export function home(req, res) {
-    res.render('index', {config: config})
+    var settings = fs.readFileSync('./server/content/settings.md','utf8')
+    settings = settings.toString().split("\n")
+    console.log(settings)
+    res.render('index', {config: config, settings})
 }
 
 export function topStories(req, res) {

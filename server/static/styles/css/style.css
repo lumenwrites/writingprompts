@@ -148,8 +148,12 @@ p {
 .btn-default:hover, .btn-default:active {
   background: #008cba;
 }
+/* line 125, ../sass/_general.scss */
+.btn-default i {
+  color: white;
+}
 
-/* line 126, ../sass/_general.scss */
+/* line 129, ../sass/_general.scss */
 .btn-cta {
   font-family: "Lato";
   font-size: 32px;
@@ -167,7 +171,7 @@ p {
   box-shadow: 0 0 30px 2px rgba(34, 34, 34, 0.5);
   white-space: normal;
 }
-/* line 142, ../sass/_general.scss */
+/* line 145, ../sass/_general.scss */
 .btn-cta:hover, .btn-cta:active, .btn-cta:focus, .btn-cta:visited {
   background: linear-gradient(to bottom, #ff6500, #f84200);
   background: linear-gradient(to bottom, #0086ff, #006cf8);
@@ -176,18 +180,18 @@ p {
   box-shadow: 0 0 30px 2px rgba(34, 34, 34, 0.5);
 }
 
-/* line 150, ../sass/_general.scss */
+/* line 153, ../sass/_general.scss */
 .btn-outline {
   border: 1px solid #274059;
 }
 
 /* Dropdown */
-/* line 159, ../sass/_general.scss */
+/* line 162, ../sass/_general.scss */
 .dropdown li {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-/* line 165, ../sass/_general.scss */
+/* line 168, ../sass/_general.scss */
 .dropdown:hover .dropdown-menu {
   display: block;
   min-width: 100%;
@@ -198,7 +202,7 @@ p {
   left: -100px;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
-/* line 174, ../sass/_general.scss */
+/* line 177, ../sass/_general.scss */
 .dropdown:hover .dropdown-menu a {
   display: block;
   background: white;
@@ -206,12 +210,12 @@ p {
   color: rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
-/* line 179, ../sass/_general.scss */
+/* line 182, ../sass/_general.scss */
 .dropdown:hover .dropdown-menu a i {
   margin-right: 5px;
 }
 
-/* line 188, ../sass/_general.scss */
+/* line 191, ../sass/_general.scss */
 .alert {
   position: absolute;
   top: 0;
@@ -224,43 +228,43 @@ p {
 }
 
 /* Footer */
-/* line 199, ../sass/_general.scss */
+/* line 202, ../sass/_general.scss */
 footer {
   height: 40px;
   margin-top: 20px;
   padding: 10px 10px;
   background-color: #333a42;
 }
-/* line 204, ../sass/_general.scss */
+/* line 207, ../sass/_general.scss */
 footer .contact {
   color: #babfc2;
   float: left;
 }
-/* line 208, ../sass/_general.scss */
+/* line 211, ../sass/_general.scss */
 footer .madeby {
   color: #babfc2;
   float: right;
 }
-/* line 212, ../sass/_general.scss */
+/* line 215, ../sass/_general.scss */
 footer a, footer i {
   color: #babfc2 !important;
   font-weight: bold;
 }
 
 /* Css magic that keeps images 16x9, background in the center. */
-/* line 220, ../sass/_general.scss */
+/* line 223, ../sass/_general.scss */
 .image-wrapper {
   width: 100%;
   position: relative;
 }
-/* line 224, ../sass/_general.scss */
+/* line 227, ../sass/_general.scss */
 .image-wrapper:after {
   padding-top: 56.25%;
   /* 16:9 ratio */
   display: block;
   content: '';
 }
-/* line 230, ../sass/_general.scss */
+/* line 233, ../sass/_general.scss */
 .image-wrapper .thumbnail {
   position: absolute;
   top: 0;
