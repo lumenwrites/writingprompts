@@ -18,6 +18,12 @@ header {
 	color: $black;
 	font-size: 22px;
 	line-height: 40px;
+	img {
+	    float:left;
+	    width: 40px;
+	    height: 40px;
+	    margin-right: 5px;
+	}
 	.image {
 	    float:left;
 	    width: 40px;

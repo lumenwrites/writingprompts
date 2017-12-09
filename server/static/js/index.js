@@ -2,21 +2,10 @@ import './vendor/popper.min.js'
 import './vendor/bootstrap.min.js'
 import './vendor/mousetrap.min.js'
 
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 
 $( document ).ready(function() {
 
-    $.ajax({
-	url: "https://crossorigin.me/http://writingexercises.co.uk/php/char.php",
-	type: 'GET',
-	success: function(data) {
-	    console.log(data);
-	}
-    })
-    
     $('.refresh').click(function() {
 	/* Every time I click, I rotate data in data attribute,
 	   and replace prompt with the first element in the array.
@@ -32,19 +21,6 @@ $( document ).ready(function() {
 	dataWrapper.find('.image-prompt').attr('src',prompts[0])
     })
     
-    $('#refresh-settings-text-prompt').click(function(){
-	const random = getRandomInt(0,SETTINGS.length - 2)
-	arr.push(arr.shift())
-	$('#settings-text-prompt').text('heyah!')
-    })
-
-    $('#refresh-settings').click(function(){
-	const random_int = getRandomInt(0,SETTINGS.length - 2)
-	
-	console.log(random_int)
-
-	$('#settings').attr('src', SETTINGS[random_int]);
-    })
 
     /* Turn on dark interface */
     if (localStorage.getItem("darkInterface")) {
