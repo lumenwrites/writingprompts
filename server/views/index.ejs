@@ -5,65 +5,12 @@
 <div class="page">
     <div class="container">
 	<%- include('elements/subscriptionbox') -%>
-	<div class="row">
-	    <div class="col-md-12 col-sm-12">
-		<h1>/r/WritingPrompts Tools:</h1>
-		<div class="post-boxes">
-		    <!-- Unnoticed Prompts -->		    
-		    <a href="/prompts">
-			<article class="post-box">
-			    <div class="image-wrapper">
-				<div class="thumbnail"
-				     style="background-image:
-					    url('/static/images/magnifying-glass.jpg');">
-				</div>
-			    </div>
-			    <div class="description">
-				<h2>Unnoticed Prompts</h2>
-				<p>Discover great prompts that did not receive many replies.</p>
-			    </div>
-			</article>
-		    </a>
 
-		    <!-- Leaderboard -->		    
-		    <a href="/topauthors">
-			<article class="post-box">
-			    <div class="image-wrapper">
-				<div class="thumbnail"
-				     style="background-image:
-					    url('/static/images/top-writers.jpg');">
-				</div>
-			    </div>
-			    <div class="description">
-				<h2>Leaderboard</h2>
-				<p>Browse the top 100 authors and their most upvoted stories.</p>
-			    </div>
-			</article>
-		    </a>
-
-		    <!-- Reader -->		    
-		    <a href="/stories">
-			<article class="post-box">
-			    <div class="image-wrapper">
-				<div class="thumbnail"
-				     style="background-image:
-					    url('/static/images/reading.jpg');">
-				</div>
-			    </div>
-			    <div class="description">
-				<h2>Reader</h2>
-				<p>Read the most upvoted stories of this week, month, or all time.</p>
-			    </div>
-			</article>
-		    </a>
-		    
-		</div> <!-- End .posts-wrapper -->		
-	    </div> <!-- End .col-md-12 -->
-	</div> <!-- End .row -->
+	<%- include('elements/writingPromptsTools') -%>    
+	<%- include('elements/promptsGenerator') -%>
     </div> <!-- End .container -->
+    <%- include('elements/cta') -%>
 
-    <%- include('elements/promptsGenerator') -%>    
-    <%- include('elements/cta') -%>    
 </div> <!-- End .page-class -->
 
 <script>

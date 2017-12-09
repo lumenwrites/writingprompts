@@ -188,7 +188,7 @@ def authors_to_json(sorted_authors, filename):
 
 def top_authors(timeframe="all",max_top_posts=1000, max_authors=5000, refetch=True):
     top_posts = cache(
-        fetch_top_posts, {'limit': max_top_posts, 'time_filter':'all'},
+        fetch_top_posts, {'limit': max_top_posts, 'time_filter':timeframe},
         'top_posts_'+timeframe+'.pkl', refetch=refetch
     )
 
@@ -236,8 +236,8 @@ subreddit = r.subreddit('writingprompts')
 # top_stories(timeframe="week", max_top_posts=10, refetch=False)
 
 # All
-top_authors(timeframe="all", max_top_posts=1000, max_authors=5000, refetch=True)
-top_stories(timeframe="all", max_top_posts=1000, refetch=False)
+# top_authors(timeframe="all", max_top_posts=1000, max_authors=5000, refetch=True)
+# top_stories(timeframe="all", max_top_posts=1000, refetch=False)
 # Weekly
 top_authors(timeframe="week", max_top_posts=1000, max_authors=5000, refetch=True)
 top_stories(timeframe="week", max_top_posts=1000, refetch=False)

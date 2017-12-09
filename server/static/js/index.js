@@ -9,6 +9,14 @@ function getRandomInt(min, max) {
 
 $( document ).ready(function() {
 
+    $.ajax({
+	url: "https://crossorigin.me/http://writingexercises.co.uk/php/char.php",
+	type: 'GET',
+	success: function(data) {
+	    console.log(data);
+	}
+    })
+    
     $('.refresh').click(function() {
 	/* Every time I click, I rotate data in data attribute,
 	   and replace prompt with the first element in the array.
